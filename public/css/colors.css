@@ -1,0 +1,40 @@
+.back-black{
+    background-color: black;
+}
+.back-blue{
+    background-color: blue;
+}
+.back-red{
+    background-color: red;
+}
+.back-aliceblue{
+    background-color: aliceblue;
+}
+.back-orange{
+    background-color: rgb(255, 144, 0);
+}
+.back-lightgrey{
+    background-color: lightgrey;
+}
+.back-darkcyan{
+    background-color: darkcyan;
+}
+.back-cadetblue{
+    background-color: cadetblue;
+}
+.color-aliceblue{
+    color: aliceblue;
+}
+.color-khaki{
+    color: khaki;
+}
+.color-beige{
+    color: beige;
+}
+.color-black{
+    color: black;
+}
+.color-darkcyan{
+    color: darkcyan;
+}
+
