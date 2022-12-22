@@ -9,16 +9,36 @@ const __dirname = path.dirname(__filename);
 
 const __dirnameRoutes = __dirname.replace("routes","");
 
+redirect.get("/CVWeb", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/cvweb.html");
+});
+
 redirect.get("/CVWeb/Experiencia", (req, res) => {
-    res.sendFile(__dirnameRoutes + "/public/reg_experiencia.html");
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_experiencia.html");
 });
 
 redirect.get("/CVWeb/Cuentanos", (req, res) => {
-    res.sendFile(__dirnameRoutes + "/public/reg_cuentanos.html");
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_cuentanos.html");
 });
 
 redirect.get("/CVWeb/Datos", (req, res) => {
-    res.sendFile(__dirnameRoutes + "/public/reg_datos.html");
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_datos.html");
+});
+
+redirect.get("/CVWeb/Idiomas", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_idiomas.html");
+});
+
+redirect.get("/CVWeb/Estudios", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_estudios.html");
+});
+
+redirect.get("/CVWeb/SoftSkills", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_skills.html");
+});
+
+redirect.get("/CVWeb/TecnologiaIntereses", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_tegint.html");
 });
 
 redirect.get("/E403", (req, res) => {

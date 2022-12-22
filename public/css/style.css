@@ -31,7 +31,7 @@ body {
 .filter-opa{
     filter: blur(10px);
 }
-hr{
+.shr{
     border: 0;
 }
 .border-blue {

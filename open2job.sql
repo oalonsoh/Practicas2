@@ -18,8 +18,6 @@ USE `open2job` ;
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_contacto`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_contacto` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_contacto` (
   `iduser` INT NOT NULL AUTO_INCREMENT,
   `email2` VARCHAR(255) NULL,
@@ -45,12 +43,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_objetivos`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_objetivos` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_objetivos` (
+  `idcv_objetivos` INT NOT NULL AUTO_INCREMENT,
   `iduser` INT NOT NULL,
-  `objetivo_personal` VARCHAR(255) NOT NULL,
-  `objetivo_profesional` VARCHAR(255) NOT NULL,
+  `objetivo_personal` TEXT NOT NULL,
+  `objetivo_profesional` TEXT NOT NULL,
+  PRIMARY KEY (`idcv_objetivos`),
   CONSTRAINT `fk_cv_objetivo___cv_contacto__1`
     FOREIGN KEY (`iduser`)
     REFERENCES `open2job`.`cv_contacto` (`iduser`)
@@ -62,9 +60,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_experiencias`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_experiencias` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_experiencias` (
+  `idcv_experiencia` INT NOT NULL AUTO_INCREMENT,
   `iduser` INT NOT NULL,
   `funcion` VARCHAR(255) NOT NULL,
   `empresa` VARCHAR(255) NOT NULL,
@@ -73,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `open2job`.`cv_experiencias` (
   `ffin` DATE NULL,
   `actual` TINYINT NOT NULL,
   `experiencia` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idcv_experiencia`),
   CONSTRAINT `fk_cv_experiencias_cvcontacto__1`
     FOREIGN KEY (`iduser`)
     REFERENCES `open2job`.`cv_contacto` (`iduser`)
@@ -84,17 +82,34 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_hardskills`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_hardskills` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_hardskills` (
-  `iduser` INT NOT NULL AUTO_INCREMENT,
+  `idcv_hardskills` INT NOT NULL AUTO_INCREMENT,
+  `iduser` INT NOT NULL,
   `centro` VARCHAR(255) NOT NULL,
   `diploma` VARCHAR(255) NULL,
   `lugar` VARCHAR(45) NOT NULL,
   `fgraduacion` VARCHAR(4) NOT NULL,
   `formacion` VARCHAR(255) NOT NULL,
   `actual` TINYINT(1) NULL,
+  PRIMARY KEY (`idcv_hardskills`),
   CONSTRAINT `fk_cv_hardskills_cv_contacto1`
+    FOREIGN KEY (`iduser`)
+    REFERENCES `open2job`.`cv_contacto` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `open2job`.`cv_softskills`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `open2job`.`cv_softskills` (
+  `idcv_softskills` INT NOT NULL AUTO_INCREMENT,
+  `iduser` INT NOT NULL,
+  `habilidad` VARCHAR(100) NOT NULL,
+  `explicacion` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idcv_softskills`),
+  CONSTRAINT `iduser`
     FOREIGN KEY (`iduser`)
     REFERENCES `open2job`.`cv_contacto` (`iduser`)
     ON DELETE NO ACTION
@@ -105,14 +120,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_idiomas`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_idiomas` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_idiomas` (
+  `idcv_idiomas` INT NOT NULL AUTO_INCREMENT,
   `iduser` INT NOT NULL,
   `idioma` VARCHAR(45) NOT NULL,
   `nivel` VARCHAR(45) NULL,
   `certificado` TINYINT NULL,
   `fcertif` VARCHAR(45) NULL,
+  PRIMARY KEY (`idcv_idiomas`),
   CONSTRAINT `fk_Idioma_cv_contacto1`
     FOREIGN KEY (`iduser`)
     REFERENCES `open2job`.`cv_contacto` (`iduser`)
@@ -124,45 +139,55 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_techs`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_techs` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_techs` (
-  `iduser` INT NOT NULL,
-  `Tecnologia` VARCHAR(225) NULL,
-  CONSTRAINT `fk_cv_techs_cv_contacto1`
-    FOREIGN KEY (`iduser`)
-    REFERENCES `open2job`.`cv_contacto` (`iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `open2job`.`cv_softskills`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_softskills` ;
-
-CREATE TABLE IF NOT EXISTS `open2job`.`cv_softskills` (
-  `iduser` INT NOT NULL,
-  `habilidad` VARCHAR(45) NULL,
-  `explicacion` VARCHAR(225) NULL,
-  CONSTRAINT `fk_cv_softskills_cv_contacto1`
-    FOREIGN KEY (`iduser`)
-    REFERENCES `open2job`.`cv_contacto` (`iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `idcv_techs` INT NOT NULL AUTO_INCREMENT,
+  `tecnologia` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idcv_techs`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_hobbies`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_hobbies` ;
-
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_hobbies` (
+  `idcv_hobbies` INT NOT NULL AUTO_INCREMENT,
+  `interes` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idcv_hobbies`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `open2job`.`techs_contacto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `open2job`.`techs_contacto` (
   `iduser` INT NOT NULL,
-  `interes` VARCHAR(225) NOT NULL,
-  CONSTRAINT `fk_cv_hobbies_cv_contacto1`
+  `idcv_techs` INT NOT NULL,
+  PRIMARY KEY (`iduser`, `idcv_techs`),
+  CONSTRAINT `fk_cv_techs_has_cv_contacto_cv_techs1`
+    FOREIGN KEY (`idcv_techs`)
+    REFERENCES `open2job`.`cv_techs` (`idcv_techs`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cv_techs_has_cv_contacto_cv_contacto1`
+    FOREIGN KEY (`iduser`)
+    REFERENCES `open2job`.`cv_contacto` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `open2job`.`hobbies_contacto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `open2job`.`hobbies_contacto` (
+  `iduser` INT NOT NULL,
+  `idcv_hobbies` INT NOT NULL,
+  PRIMARY KEY (`idcv_hobbies`, `iduser`),
+  CONSTRAINT `fk_cv_hobbies_has_cv_contacto_cv_hobbies1`
+    FOREIGN KEY (`idcv_hobbies`)
+    REFERENCES `open2job`.`cv_hobbies` (`idcv_hobbies`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cv_hobbies_has_cv_contacto_cv_contacto1`
     FOREIGN KEY (`iduser`)
     REFERENCES `open2job`.`cv_contacto` (`iduser`)
     ON DELETE NO ACTION

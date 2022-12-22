@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación</title>
+    <link rel="stylesheet" href="/./../css/style.css">
+    <link rel="stylesheet" href="/./../css/widiths.css">
+    <link rel="stylesheet" href="/./../css/heights.css">
+    <link rel="stylesheet" href="/./../css/colors.css">
+    <script type="module" src="/./../js/changeRedirect.js"></script>
+</head>
+<body>
+    <form>
+        <div class="swidith center-auto oheight">
+            <div class="flex-container space mwidith siheight" >
+                <div class="sixwidith siheight">
+                    <div class="mwidith fheight">
+                        <h3 class="nwidith center-auto, txt-bold">Formación/HardSkills</h3>
+                        <div class="mwidith" id="lista"></div>
+                    </div>
+                    <div class="mwidith uheight">
+                        <hr class='border-blue'>
+                    </div> 
+                    <div class="flex-container space uxheight">
+                        <div class="fxwidith theight">
+                            <input type="text" id="formacion" name="formaciom" placeholder="Formación" class="d-block mwidith xxheight border-blue"/>
+                            <hr class='shr'>
+                            <input type="text" id="centro" name="centro" placeholder="Centro" class="d-block mwidith xxheight border-blue"/>
+                            <hr class='shr'>
+                            <input type="text" id="lugar" name="lugar" placeholder="Lugar" class="d-block mwidith xxheight border-blue"/>
+                        </div>  
+                        <div class="fxwidith theight">
+                            <input type="text" id="diploma" name="diploma" placeholder="Diploma" class="d-block mwidith xxheight border-blue"/>
+                            <hr class='shr'><hr class='shr'>
+                            <div class="mwidith">
+                                <label class="txt-bold">Finalizado</label>
+                                <input type="checkbox" id="cursado" name="cursado"/>
+                            </div>
+                            <hr class='shr'>
+                            <input type="text" id="fecha" name="fecha" placeholder="Fecha de Graduacion" class="d-block mwidith xxheight border-blue"/>
+                        </div> 
+                    </div>  
+                </div>
+                <div class="dwidith siheight"><input type='image' src='/./../img/experiencia.png' class='mwidith'/></div>
+            </div>
+            <div class="flex-container space nxwidith center-auto xheight">
+                <div class="dwidith">
+                    <input type="button" id="anyadir" value="Añadir formación" class="mwidith xheight txt-bold back-orange"/>
+                </div>
+                <div class="flex-container fwidith space">
+                    <input type="button" id="anterior" value="Anterior" class="fxwidith xheight txt-bold back-orange"/>
+                    <input type="button" id="sig" value="Siguiente" class="fxwidith xheight txt-bold back-orange"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script type="module" src="/./../js/registro/estudios.js"></script>
+</body>
+</html>

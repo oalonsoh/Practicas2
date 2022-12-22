@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia Laboral</title>
+    <link rel="stylesheet" href="/./../css/style.css">
+    <link rel="stylesheet" href="/./../css/widiths.css">
+    <link rel="stylesheet" href="/./../css/heights.css">
+    <link rel="stylesheet" href="/./../css/colors.css">
+    <script type="module" src="/./../js/changeRedirect.js"></script>
+</head>
+<body>
+    <form>
+        <div class="swidith center-auto oheight">
+            <div class="flex-container space mwidith siheight" >
+                <div class="sixwidith siheight">
+                    <div class="mwidith theight">
+                        <h3 class="nwidith center-auto, txt-bold">Tus experiencias profesionales</h3>
+                        <div class="mwidith" id="lista"></div>
+                    </div>
+                    <div class="mwidith uheight">
+                        <hr class='border-blue'>
+                    </div> 
+                    <div class="flex-container space dxheight">
+                        <div class="fxwidith theight">
+                            <input type="text" id="init" name="init" placeholder="Fecha inicio" class="d-block mwidith xxheight border-blue"/>
+                            <hr class='shr'>
+                            <input type="text" id="end" name="end" placeholder="Fecha fin" class="d-block mwidith xxheight border-blue"/>
+                            <hr class='shr'>
+                            <input type="text" id="empresa" name="empresa" placeholder="Empresa" class="d-block mwidith xxheight border-blue"/>
+                            <hr class='shr'>
+                            <input type="text" id="puesto" name="puesto" placeholder="Puesto" class="d-block mwidith xxheight border-blue"/>
+                        </div>  
+                        <div class="fxwidith theight">
+                            <textarea name='sinopsis' id='sinopsis' placeholder="Explicanos tu experiencia" class='mwidith border-blue' 
+                                      rows='3' cols='50'></textarea>
+                            <hr class='shr'><hr class='shr'>
+                            <input type="text" id="lugar" name="lugar" placeholder="Lugar" class="d-block mwidith xxheight border-blue"/>
+                        </div> 
+                    </div>  
+                </div>
+                <div class="dwidith siheight"><input type='image' src='/./../img/experiencia.png' class='mwidith'/></div>
+            </div>
+            <div class="flex-container space nxwidith center-auto xheight">
+                <div class="dwidith">
+                    <input type="button" id="anyadir" value="Añadir experiencia" class="mwidith xheight txt-bold back-orange"/>
+                </div>
+                <div class="flex-container fwidith space">
+                    <input type="button" id="anterior" value="Anterior" class="fxwidith xheight txt-bold back-orange"/>
+                    <input type="button" id="sig" value="Siguiente" class="fxwidith xheight txt-bold back-orange"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script type="module" src="/./../js/registro/experiencia.js"></script>
+</body>
+</html>
