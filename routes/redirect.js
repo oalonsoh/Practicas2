@@ -13,6 +13,10 @@ redirect.get("/CVWeb", (req, res) => {
     res.sendFile(__dirnameRoutes + "/public/cvweb.html");
 });
 
+redirect.get("/CVWeb/Login", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/login.html");
+});
+
 redirect.get("/CVWeb/Experiencia", (req, res) => {
     res.sendFile(__dirnameRoutes + "/public/registro/reg_experiencia.html");
 });
@@ -37,8 +41,12 @@ redirect.get("/CVWeb/SoftSkills", (req, res) => {
     res.sendFile(__dirnameRoutes + "/public/registro/reg_skills.html");
 });
 
-redirect.get("/CVWeb/TecnologiaIntereses", (req, res) => {
-    res.sendFile(__dirnameRoutes + "/public/registro/reg_tegint.html");
+redirect.get("/CVWeb/Tecnologias", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_tecnologias.html");
+});
+
+redirect.get("/CVWeb/Hobbies", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro/reg_intereses.html");
 });
 
 redirect.get("/E403", (req, res) => {

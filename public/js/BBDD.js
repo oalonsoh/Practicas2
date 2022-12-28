@@ -1,43 +1,41 @@
-export class BBDD{
-    static listTecnoInteres(isTecno) {
-        fetch('/listTecnoInteres', {
+export class BBDD {
+
+    static getUser(user, pass) {
+        fetch("/login", {
             method: 'POST',
-            body: JSON.stringify({ 'isTecno': isTecno}),
+            body: JSON.stringify({ 'user': user, 'pass': pass }),
             headers: { 'Content-Type': 'application/json' }
-        })
-            .then(res => res.json())
-            .then(data => {
-                for (let index = 0; index < data.length; index++) {
-                    const option = document.createElement('option');
-                    if(isTecno){
-                        option.value = data[0].idcv_techs;
-                        option.text = data[index].tecnologia;
-                        document.getElementById("ltecnologias").appendChild(option);
-                    }else{
-                        option.value = data[0].idcv_hobbies;
-                        option.text = data[index].interes;
-                        document.getElementById("lintereses").appendChild(option);
-                    }
-                }
-            });
+        }).then(res => res.json())
+          .then(data => {
+            if (data.iduser) {
+                window.localStorage.setItem("id", data.iduser);
+                window.localStorage.setItem("name", data.nombre);
+                window.localStorage.setItem("surname", data.apellidos);
+                window.localStorage.setItem("rol", data.rol);
+                //aqui es donde se guarda el cv
+                window.sessionStorage.setItem("cv", getCV(window.localStorage.getItem(id)));
+                window.location.href = "/CVWeb"
+            } else {
+                window.location.href = "/CVWeb/Login"
+            }
+          });
     }
 
-    static insertTecnoInteres(file, isTecno) {
-        fetch("/insertTecnoInteres", {
+    static insertCVWeb() {
+        let cvweb = JSON.parse(window.sessionStorage.getItem("CVWeb"));
+        fetch("/insertCVWeb", {
             method: 'POST',
-            body: JSON.stringify({ 'name': file, 'isTecno': isTecno}),
+            body: JSON.stringify({ 'name': cvweb }),
             headers: { 'Content-Type': 'application/json' }
-        })
-            .then(res => res.json())
-            .then(data => {
-                const option = document.createElement('option');
-                option.value = data[0].cod;
-                option.text = file;
-                if(isTecno){
-                    document.getElementById("ltecnologia").appendChild(option);
-                }else{
-                    document.getElementById("lintereses").appendChild(option);
-                }
-            });
+        }).then(res => res.json())
+          .then(data => {
+            console.log(data)
+          });
     }
+
+    
+    getCV(id){
+        //funcion para recoger los datos getCV
+    }
+    
 }

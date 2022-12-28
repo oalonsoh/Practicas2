@@ -13,6 +13,7 @@ document.getElementById("anyadir").addEventListener("click", (e) => {
                     empresa: document.getElementById("empresa").value,
                     puesto: document.getElementById("puesto").value,
                     sinopsis: document.getElementById("sinopsis").value,
+                    actual: document.getElementById("actual").checked,
                     lugar: document.getElementById("lugar").value
                 };
     cvweb.experiencias.push(items);
@@ -26,6 +27,20 @@ document.getElementById("anyadir").addEventListener("click", (e) => {
     document.getElementById("puesto").value = "";
     document.getElementById("sinopsis").value = "";
     document.getElementById("lugar").value = "";
+
+    var edit = document.getElementsByTagName("edit");
+    var borrar = document.getElementsByClassName("delete");
+    console.log(edit);
+
+    edit.forEach(element => {
+        
+    });
+
+    borrar.forEach(element => {
+      element.addEventListener("click", ()=> {
+            alert("jkdgksldgjsj");
+       });
+    });
 })
 
 Functions.sigiente("/CVWeb/Estudios", "Como mínimo ha de haber un empleo", cvweb, cvweb.experiencias);

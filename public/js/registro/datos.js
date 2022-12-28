@@ -17,28 +17,12 @@ document.getElementById("sig").addEventListener("click", (e) => {
     let reg= /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if(document.getElementById("email2").value != "" && !reg.test(document.getElementById("email2").value)){
         Functions.validText("email2", "Formato email incorrecto");
-    }else if(document.getElementById("telp").value == ""){
-        Functions.validText("telp", "Este campo no puede estar vacio");
     }else if(document.getElementById("telp").value != "" && !/^([6||7||8||9]{1})+([0-9]{8})$/i.test(document.getElementById("telp").value)){
         Functions.validText("telp", "Formato telefono incorrecto");
     }else if(document.getElementById("tels").value != "" && !/^([6||7||8||9]{1})+([0-9]{8})$/i.test(document.getElementById("tels").value)){
         Functions.validText("tels", "Formato telefono incorrecto");
-    }else if(document.getElementById("cp").value == ""){
-        Functions.validText("cp", "Este campo no puede estar vacio");
     }else if(document.getElementById("cp").value != "" && !/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/i.test(document.getElementById("cp").value)){
         Functions.validText("cp", "Formato cp incorrecto");
-    }else if(document.getElementById("direccion").value == ""){
-        Functions.validText("direccion", "Este campo no puede estar vacio");
-    }else if(document.getElementById("poblacion").value == ""){
-        Functions.validText("poblacion", "Este campo no puede estar vacio");
-    }else if(document.getElementById("provincia").value == ""){
-        Functions.validText("provincia", "Este campo no puede estar vacio");
-    }else if(document.getElementById("estado").value == ""){
-        Functions.validText("estado", "Este campo no puede estar vacio");
-    }else if(document.getElementById("fecha").value == ""){
-        Functions.validText("fecha", "Este campo no puede estar vacio");
-    }else if(document.getElementById("genero").value == ""){
-        Functions.validText("genero", "Este campo no puede estar vacio");
     }else{
         cv.email2 = document.getElementById("email2").value;
         cv.phone = document.getElementById("telp").value;
@@ -66,6 +50,6 @@ document.getElementById("sig").addEventListener("click", (e) => {
 })
 
 document.getElementById("salir").addEventListener("click", () => {
-    //window.sessionStorage.removeItem("CVWeb");
+    window.sessionStorage.removeItem("CVWeb");
     window.location.href = "/CVWeb";
 });

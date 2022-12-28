@@ -24,4 +24,4 @@ document.getElementById("anyadir").addEventListener("click", (e) => {
     document.getElementById("certificado").checked = false;
 })
 
-Functions.sigiente("/CVWeb/TecnologiaIntereses", "Como mínimo ha de haber un idioma", cvweb, cvweb.idiomas);
+Functions.sigiente("/CVWeb/Tecnologias", "Como mínimo ha de haber un idioma", cvweb, cvweb.idiomas);

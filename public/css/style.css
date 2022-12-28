@@ -59,8 +59,11 @@ body {
 .size-xsx{
     font-size: 2vw;
 }
-.size-xs{
-    font-size: 4vw;
+.size-xsx{
+    font-size: 2vw;
+}
+.size-sxs{
+    font-size: 3vw;
 }
 .d-block{
     display: block;

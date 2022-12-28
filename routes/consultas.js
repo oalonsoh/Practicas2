@@ -23,9 +23,9 @@ consulta.get("/", (req, res) => {
 
 });
 
-consulta.post("/insertTecnointeres", (req, res) => {
+consulta.post("/insertTecnoInteres", (req, res) => {
     let sql = "select insertTecnologia(?) as cod";
-    if (!req.body.istecno){
+    if (!req.body.isTecno){
          sql = "select insertintereses(?) as cod"; 
     }
     conn.query(sql,[req.body.name], (error, results) => {
@@ -40,17 +40,16 @@ consulta.post("/insertTecnointeres", (req, res) => {
 });
 
 consulta.post("/listTecnointeres", (req, res) => {
-    let sql = "select * from cv_tech";
+    let sql = "select * from cv_tech as cod";
     if (!req.body.istecno){
-        sql = "select * from cv_hobbies";
+        sql = "select * from cv_hobbies as cod";
     }
     conn.query(sql, (error, results) => {
         if (error){
             throw error
             
         } else {  
-           // res.json(results);
-         console.log(results)
+           res.json(results);
         }
     });
 });

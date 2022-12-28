@@ -23,7 +23,6 @@ export class Functions {
         document.getElementById(element).style.color = "#ff0000";
         if(element == "lista"){
             document.getElementById(element).innerHTML = action;
-           
         }else{
             document.getElementById(element).value = action;
         }
@@ -49,8 +48,8 @@ export class Functions {
                 "<label class='d-block dwidith'>"+element[index].empresa+"</label>" +
                 "<label class='d-block dwidith'>"+element[index].puesto+"</label>" +
                 "<label class='d-block dwidith'>"+element[index].lugar+"</label>" +
-                "<div class='flex-container xwidith'><input type='image' src='/./../img/edit.png' class='cwidith'/>" +
-                "<input type='image' src='/./../img/delete.png' class='cwidith'/></div></div>";
+                "<div class='flex-container xwidith'><input type='image' src='/./../img/edit.png' name='edit' class='cwidith edit'/>" +
+                "<input type='image' src='/./../img/delete.png' class='cwidith delete'/></div></div>";
            
         }
     
@@ -62,7 +61,7 @@ export class Functions {
         for (let index = 0; index < element.length; index++) {
         i += "<div class='flex-container mwidith'><input type='checkbox' class='d-block xwidith border-blue'/>" +
                 "<label class='d-block uxwidith'>"+element[index].fecha+"</label>" +
-                "<label class='d-block dxwidith'>"+element[index].curso+"</label>" +
+                "<label class='d-block dxwidith'>"+element[index].curso+"</label>" + 
                 "<label class='d-block twidith'>"+element[index].centro+"</label>" +
                 "<label class='d-block uxwidith'>"+element[index].lugar+"</label>" +
                 "<div class='flex-container xwidith'><input type='image' src='/./../img/edit.png' class='cwidith'/>" +
@@ -78,6 +77,32 @@ export class Functions {
         for (let index = 0; index < element.length; index++) {
         i += "<div class='flex-container mwidith'><input type='checkbox' class='d-block xwidith border-blue'/>" +
                 "<label class='d-block nwidith'>"+element[index].habilidad+"</label>" +
+                "<div class='flex-container xwidith'><input type='image' src='/./../img/edit.png' class='cwidith'/>" +
+                "<input type='image' src='/./../img/delete.png' class='cwidith'/></div></div>";
+        
+        }
+
+        document.getElementById("lista").innerHTML = i;
+    }
+
+    static chargeListaTecnologia(element){
+        let i ="";
+        for (let index = 0; index < element.length; index++) {
+        i += "<div class='flex-container mwidith'><input type='checkbox' class='d-block xwidith border-blue'/>" +
+                "<label class='d-block nwidith'>"+element[index].tecnologia+"</label>" +
+                "<div class='flex-container xwidith'><input type='image' src='/./../img/edit.png' class='cwidith'/>" +
+                "<input type='image' src='/./../img/delete.png' class='cwidith'/></div></div>";
+        
+        }
+
+        document.getElementById("lista").innerHTML = i;
+    }
+
+    static chargeListaIntereses(element){
+        let i ="";
+        for (let index = 0; index < element.length; index++) {
+        i += "<div class='flex-container mwidith'><input type='checkbox' class='d-block xwidith border-blue'/>" +
+                "<label class='d-block nwidith'>"+element[index].interes+"</label>" +
                 "<div class='flex-container xwidith'><input type='image' src='/./../img/edit.png' class='cwidith'/>" +
                 "<input type='image' src='/./../img/delete.png' class='cwidith'/></div></div>";
         

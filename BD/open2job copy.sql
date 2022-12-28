@@ -20,7 +20,7 @@ USE `open2job` ;
 DROP TABLE IF EXISTS `open2job`.`cv_contacto` ;
 
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_contacto` (
-  `iduser` INT NOT NULL,
+  `iduser` INT NOT NULL AUTO_INCREMENT,
   `email2` VARCHAR(255) NULL,
   `telf1` VARCHAR(45) NULL,
   `telf2` VARCHAR(45) NULL,
@@ -40,21 +40,7 @@ CREATE TABLE IF NOT EXISTS `open2job`.`cv_contacto` (
   PRIMARY KEY (`iduser`))
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `proyecto`.`usuario`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `open2job`.`cv_users` ;
 
-CREATE TABLE IF NOT EXISTS `open2job`.`cv_users` (
-  `iduser` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(255) NOT NULL,
-  `apellidos` VARCHAR(255) NOT NULL,
-  `usuario` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(255) NOT NULL,
-  `rol` INT NOT NULL,
-    PRIMARY KEY (`iduser`))
-ENGINE = InnoDB
 -- -----------------------------------------------------
 -- Table `open2job`.`cv_objetivos`
 -- -----------------------------------------------------
@@ -80,7 +66,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `open2job`.`cv_experiencias` ;
 
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_experiencias` (
-  `idcv_experiencias` INT NOT NULL AUTO_INCREMENT,
+  `idcv_experiencia` INT NOT NULL AUTO_INCREMENT,
   `iduser` INT NOT NULL,
   `funcion` VARCHAR(255) NOT NULL,
   `empresa` VARCHAR(255) NOT NULL,
@@ -168,7 +154,7 @@ DROP TABLE IF EXISTS `open2job`.`cv_techs` ;
 
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_techs` (
   `idcv_techs` INT NOT NULL AUTO_INCREMENT,
-  `iduser` INT NOT NULL,
+  `cv_contacto_iduser` INT NOT NULL,
   `tecnologia` VARCHAR(255) NOT NULL,
   `explicacion` TEXT NULL,
   PRIMARY KEY (`idcv_techs`),
@@ -187,7 +173,7 @@ DROP TABLE IF EXISTS `open2job`.`cv_hobbies` ;
 
 CREATE TABLE IF NOT EXISTS `open2job`.`cv_hobbies` (
   `idcv_hobbies` INT NOT NULL AUTO_INCREMENT,
-  `iduser` INT NOT NULL,
+  `cv_contacto_iduser` INT NOT NULL,
   `interes` VARCHAR(255) NOT NULL,
   `explicacion` TEXT NULL,
   PRIMARY KEY (`idcv_hobbies`),

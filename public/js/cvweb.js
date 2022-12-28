@@ -1,7 +1,10 @@
 import { Functions as Functions } from "./functions.js";
 
-if(true){
+let cv = window.sessionStorage.getItem("cv");
+
+if(cv == null){
     let cvweb = {
+        id: 1234,
         email2: "",
         phone: "",
         phone2: "",
@@ -33,7 +36,7 @@ if(true){
                                                   "<input type='button' id='irreg' value='Crear Curriculum Vitae' " +
                                                   "class='fwidith uheight center-auto txt-bold back-orange d-block'/></div>";
 }else{
-    
+   //si existe lo pintaremos
 }
 
 document.getElementById("irreg").addEventListener("click", () => {
