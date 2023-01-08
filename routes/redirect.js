@@ -13,7 +13,11 @@ redirect.get("/CVWeb", (req, res) => {
     res.sendFile(__dirnameRoutes + "/public/cvweb.html");
 });
 
-redirect.get("/CVWeb/Login", (req, res) => {
+redirect.get("/Registro", (req, res) => {
+    res.sendFile(__dirnameRoutes + "/public/registro.html");
+});
+
+redirect.get("/Login", (req, res) => {
     res.sendFile(__dirnameRoutes + "/public/login.html");
 });
 

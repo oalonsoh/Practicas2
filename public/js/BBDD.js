@@ -3,7 +3,7 @@ export class BBDD {
     static getUser(user, pass) {
         fetch("/login", {
             method: 'POST',
-            body: JSON.stringify({ 'user': user, 'pass': pass }),
+            body: JSON.stringify({ 'usuario': user, 'pass': pass }),
             headers: { 'Content-Type': 'application/json' }
         }).then(res => res.json())
           .then(data => {
@@ -14,9 +14,9 @@ export class BBDD {
                 window.localStorage.setItem("rol", data.rol);
                 //aqui es donde se guarda el cv
                 window.sessionStorage.setItem("cv", getCV(window.localStorage.getItem(id)));
-                window.location.href = "/CVWeb"
+                window.location.href = "/CVWeb";
             } else {
-                window.location.href = "/CVWeb/Login"
+                alert(data);
             }
           });
     }
